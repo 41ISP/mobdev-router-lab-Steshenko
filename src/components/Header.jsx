@@ -48,8 +48,6 @@ export default function Header() {
           <NavLink to ="/movies" className={navClassName}>Фильмы </NavLink>
 
           <NavLink to ="/about" className={navClassName}>О проекте </NavLink>
-          
-          <NavLink to="/contacts" className={navClassName}>Контакты</NavLink>
         </nav>
 
         <form
