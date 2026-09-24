@@ -1,5 +1,6 @@
 export default function ContactsPage() {
   return (
+    
     <section className="page-shell narrow">
       <span className="eyebrow">CONTACTS</span>
       <h1 className="page-title">Контакты</h1>

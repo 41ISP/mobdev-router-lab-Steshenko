@@ -1,8 +1,10 @@
 import MovieCard from '../components/MovieCard.jsx';
 import { movies } from '../data/movies.js';
+import { Link } from 'react-router-dom';
 
 export default function HomePage() {
   return (
+    
     <section className="page-shell">
       <div className="hero">
         <div className="hero-copy">
@@ -12,21 +14,19 @@ export default function HomePage() {
             Небольшая коллекция фильмов с поиском, жанрами
             и отдельными страницами для каждого фильма.
           </p>
-          <a href="/movies" className="primary-btn">Открыть каталог</a>
+          <Link to="/movies" className="primary-btn">Открыть каталог</Link>
         </div>
-
         <div className="hero-poster">
           <span>FILM<br />NIGHT</span>
           <small>EST. 2026</small>
         </div>
       </div>
-
       <div className="section-head">
         <div>
           <span className="eyebrow">EDITOR'S PICK</span>
           <h2>Популярное сейчас</h2>
         </div>
-        <a href="/movies" className="text-link">Все фильмы →</a>
+        <Link to="/movies" className="text-link">Все фильмы →</Link>
       </div>
 
       <div className="movie-grid">
