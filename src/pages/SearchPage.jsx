@@ -3,11 +3,8 @@ import { movies } from '../data/movies.js';
 import { useSearchParams } from 'react-router-dom';
 
 export default function SearchPage() {
-
   const [searchParams] = useSearchParams();
-
   const query = (searchParams.get('q') || '').trim();
-
   const results = query
     ? movies.filter((movie) =>
         `${movie.title} ${movie.originalTitle}`
@@ -15,8 +12,8 @@ export default function SearchPage() {
           .includes(query.toLowerCase())
       )
     : [];
-
   return (
+
     <section className="page-shell">
       <span className="eyebrow">SEARCH</span>
       <h1 className="page-title">Результаты поиска</h1>
@@ -41,3 +38,4 @@ export default function SearchPage() {
     </section>
   );
 }
+

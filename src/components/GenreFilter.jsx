@@ -1,37 +1,22 @@
-import { useSearchParams } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 
 export default function GenreFilter({ genres }) {
-  const [searchParams, setSearchParams] = useSearchParams();
 
-  const selectedGenre = searchParams.get('genre') || '';
-
-  function handleSelect(genreId) {
-    const nextParams = new URLSearchParams(searchParams);
-
-    if (genreId) {
-      nextParams.set('genre', genreId);
-    } else {
-      nextParams.delete('genre');
-    }
-
-    setSearchParams(nextParams);
-  }
+  const [searchParams] = useSearchParams();
+  const activeGenre = searchParams.get('genre') || '';
 
   return (
+
     <div className="genres">
       {genres.map((genre) => (
-        <button
+        <Link
+        
           key={genre.id || 'all'}
-          type="button"
-          onClick={() => handleSelect(genre.id)}
-          className={
-            'genre-btn' +
-            (genre.id === selectedGenre ? ' active' : '')
-          }
-          aria-pressed={genre.id === selectedGenre}
-        >
+          to={genre.id ? `/movies?genre=${genre.id}` : '/movies'}
+          className={`genre-btn${genre.id === activeGenre ? ' active' : ''}`}>
           {genre.label}
-        </button>
+
+        </Link>
       ))}
     </div>
   );
